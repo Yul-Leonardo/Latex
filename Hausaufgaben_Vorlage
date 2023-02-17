@@ -1,0 +1,68 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german=guillemets]{csquotes}
+\usepackage[breaklinks=true,
+colorlinks,
+linkcolor=black,
+filecolor=black,
+citecolor=black
+]{hyperref}
+\usepackage{caption}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{listings}
+
+\begin{document}
+
+% Begin of Titlepage
+
+\begin{titlepage}
+
+\begin{center}
+    \vspace*{1cm}
+
+    \Large\textbf{Funktionale Programmierung}\\
+    
+    \small Winter 2022/2023\\
+
+    \Large
+    \vspace{0.5cm}
+    7. Übungszettel\\
+    Abgabe: 16. Februar, 2023 - 12:00 online\\
+    Katharina Klost
+
+    \small
+    \vspace{1.5cm}
+    \textbf{Yul Leonardo Rusch Godoy}\\
+    \vspace{0.2cm}
+    \small yul.leonardo.rusch.godoy@fu-berlin.de\\
+    \small Matrikelnummer: 5425917\\
+
+    \vfill
+
+    %A thesis presented for the degree of\\
+    %Doctor of Philosophy
+
+    \vspace{0.8cm}
+
+    \includegraphics[width=4cm]{fuberlin.png}
+
+    \small
+    Institut für Informatik\\
+    Freie Universität Berlin\\
+    Datum: 16.02.2023\\
+
+\end{center}
+
+\end{titlepage}
+
+% End of Titlepage
+
+\tableofcontents
+
+\end{document}
