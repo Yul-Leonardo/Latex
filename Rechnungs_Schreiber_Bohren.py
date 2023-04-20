@@ -4,27 +4,54 @@ n = 0
 def text_einfügen():
     print("Herzlich wilkommen zu Yul's Rechnungen Ersteller!")
     print("")
-    for i in range(10):
-        pos = n + 1
-        tag = input("Am welchen Tag willst du die Rechnung Erstellen (nur der Tag des Monats): ")
-        monat = input("Monat: ")
-        jahr = input("Jahr: ")
-        tage = input("Wie viele Tage ging der Job: ")    
-        bezeichnung0 = input("Job Bezeichnung: ")
-        bezeichnung1 = bezeichnung0.replace("ö", '\\"o')
-        bezeichnung2 = bezeichnung1.replace("ä", '\\"a')
-        bezeichnung3 = bezeichnung2.replace("ü", '\\"u')
-        bezeichnung = bezeichnung3.replace("ß", '\\ss ')
 
-        betrag = input("wie viel hast du verdient: ")
-        ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+    for i in range(4):
 
-        print(pos)
-        if ende == "q":
-            return(python_to_latex(tag, monat, jahr, tage, bezeichnung, betrag))
+        if counter == 1:
+            tag = input("Am welchen Tag willst du die Rechnung Erstellen (nur der Tag des Monats): ")
+            monat = input("Monat: ")
+            jahr = input("Jahr: ")
+            tage1 = input("Wie viele Tage ging der Job: ")    
+            bezeichnung1 = input("Job Bezeichnung: ")
+            betrag1 = input("wie viel hast du verdient: ")
+            ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            counter = counter + 1
 
-def python_to_latex(tag, monat, jahr, tage, bezeichnung, betrag):
-    with open("Pdf Dateien/name_rechnung_bohren.tex","w") as file:
+            if ende == "q":
+                return(python_to_latex(tag, monat, jahr)
+        else:  
+            break
+
+        #elif counter == 2:
+            #tage2 = input("Wie viele Tage ging der Job: ")    
+            #bezeichnung2 = input("Job Bezeichnung: ")
+            #betrag2 = input("wie viel hast du verdient: ")
+            #ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            #counter = counter + 1
+
+            #if ende == "q":
+                #return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4)
+
+        #elif counter == 3:
+            #tage3 = input("Wie viele Tage ging der Job: ")    
+            #bezeichnung3 = input("Job Bezeichnung: ")
+            #betrag3 = input("wie viel hast du verdient: ")
+            #ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            #counter = counter + 1
+
+            #if ende == "q":
+                #return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4)
+
+        #elif counter == 4:
+            #tage4 = input("Wie viele Tage ging der Job: ")    
+            #bezeichnung4 = input("Job Bezeichnung: ")
+            #betrag4 = input("wie viel hast du verdient: ")
+            #ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            #return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4)
+
+def to_latex():
+    rechnungs_name = ("Rechnung" + " " + tag + " " + " " + monat + " " + jahr)
+    with open("Pdf Dateien/" + rechnungs_name + ".tex","w") as file:
         file.write('\\documentclass[12pt]{article}\n')
         file.write('\\usepackage[ngerman]{babel}\n')
         file.write('\\usepackage[utf8]{inputenc}\n')
@@ -105,11 +132,11 @@ def python_to_latex(tag, monat, jahr, tage, bezeichnung, betrag):
 
         file.write('Pos & Tage & Einheit & Bezeichnung & Gesamt\\\ \n')
         file.write('\\rowcolor{lightgrey}\n')
-        file.write('\\textbf{1.} &' + (tage) + '& Psch. &' + (bezeichnung) + " " + '(1x' +(betrag) + '\\texteuro) &' + (betrag) + " " + '\\texteuro \\\ \n')
-        file.write('\\textbf{2.} & 1 & Psch. &  & \\\ \n')
+        file.write('\\textbf{1.} &' + (tage1) + '& Psch. &' + (bezeichnung1) + " " + '(1x' +(betrag1) + '\\texteuro) &' + (betrag1) + " " + '\\texteuro \\\ \n')
+        file.write('\\textbf{2.} &' + (tage2) + '& Psch. &' + (bezeichnung2) + " " + '(1x' +(betrag2) + '\\texteuro) &' + (betrag2) + " " + '\\texteuro \\\ \n')
         file.write('\\rowcolor{lightgrey}\n')
-        file.write('\\textbf{3.} & 1 & Psch. &  & \\\ \n')
-        file.write('\\textbf{4.} & 1 & Psch. &  & \\\ \n')
+        file.write('\\textbf{3.} &' + (tage3) + '& Psch. &' + (bezeichnung3) + " " + '(1x' +(betrag3) + '\\texteuro) &' + (betrag3) + " " + '\\texteuro \\\ \n')
+        file.write('\\textbf{4.} &' + (tage4) + '& Psch. &' + (bezeichnung4) + " " + '(1x' +(betrag4) + '\\texteuro) &' + (betrag4) + " " + '\\texteuro \\\ \n')
         file.write('\n')
 
         file.write('\\end{tabular}        \n')
