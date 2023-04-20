@@ -1,10 +1,8 @@
-
-n = 0
-
 def text_einfügen():
     print("Herzlich wilkommen zu Yul's Rechnungen Ersteller!")
     print("")
 
+    counter = 1
     for i in range(4):
 
         if counter == 1:
@@ -16,41 +14,61 @@ def text_einfügen():
             betrag1 = input("wie viel hast du verdient: ")
             ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
             counter = counter + 1
+           
+            tage2 = " "
+            bezeichnung2 = " "
+            betrag2 = " "
+            tage3 = " "
+            bezeichnung3 = ""
+            betrag3 = " "
+            tage4 = " "
+            bezeichnung4 = ""
+            betrag4 = " "
+            
+            if ende == "q":
+                return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4))
+
+        elif counter == 2:
+            tage2 = input("Wie viele Tage ging der Job: ")    
+            bezeichnung2 = input("Job Bezeichnung: ")
+            betrag2 = input("wie viel hast du verdient: ")
+            ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            counter = counter + 1
+
+            tage3 = " "
+            bezeichnung3 = ""
+            betrag3 = " "
+            tage4 = " "
+            bezeichnung4 = ""
+            betrag4 = " "
 
             if ende == "q":
-                return(python_to_latex(tag, monat, jahr)
-        else:  
-            break
+                return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4))
 
-        #elif counter == 2:
-            #tage2 = input("Wie viele Tage ging der Job: ")    
-            #bezeichnung2 = input("Job Bezeichnung: ")
-            #betrag2 = input("wie viel hast du verdient: ")
-            #ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
-            #counter = counter + 1
+        elif counter == 3:
+            tage3 = input("Wie viele Tage ging der Job: ")    
+            bezeichnung3 = input("Job Bezeichnung: ")
+            betrag3 = input("wie viel hast du verdient: ")
+            ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            counter = counter + 1
+            
+            tage4 = " "
+            bezeichnung4 = ""
+            betrag4 = " "
 
-            #if ende == "q":
-                #return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4)
+            if ende == "q":
+                return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4))
 
-        #elif counter == 3:
-            #tage3 = input("Wie viele Tage ging der Job: ")    
-            #bezeichnung3 = input("Job Bezeichnung: ")
-            #betrag3 = input("wie viel hast du verdient: ")
-            #ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
-            #counter = counter + 1
+        elif counter == 4:
+            tage4 = input("Wie viele Tage ging der Job: ")    
+            bezeichnung4 = input("Job Bezeichnung: ")
+            betrag4 = input("wie viel hast du verdient: ")
+            ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
+            return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4))
 
-            #if ende == "q":
-                #return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4)
 
-        #elif counter == 4:
-            #tage4 = input("Wie viele Tage ging der Job: ")    
-            #bezeichnung4 = input("Job Bezeichnung: ")
-            #betrag4 = input("wie viel hast du verdient: ")
-            #ende = input("Zum abschließen 'q' schreiben, sonst Enter drücken um nächsten Job zu erstellen: ")
-            #return(python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4)
-
-def to_latex():
-    rechnungs_name = ("Rechnung" + " " + tag + " " + " " + monat + " " + jahr)
+def python_to_latex(tag, monat, jahr, tage1, bezeichnung1, betrag1, tage2, bezeichnung2, betrag2, tage3, bezeichnung3, betrag3, tage4, bezeichnung4, betrag4):
+    rechnungs_name = ("Rechnung" + " " + tag + "_" + monat + "_" + jahr)
     with open("Pdf Dateien/" + rechnungs_name + ".tex","w") as file:
         file.write('\\documentclass[12pt]{article}\n')
         file.write('\\usepackage[ngerman]{babel}\n')
@@ -143,7 +161,7 @@ def to_latex():
         file.write('\\end{flushleft}\n')
         file.write('\\vspace{2cm}\n')
         file.write('\\begin{flushleft}\n')
-        file.write('\\textbf{Summe: \mbox{\hspace{12.7cm}}' + (betrag) + ' \\texteuro}\n')
+        file.write('\\textbf{Summe: \mbox{\hspace{12.7cm}}' + (betrag1) + ' \\texteuro}\n')
         file.write('\\vspace{0.2cm}\n')
         file.write('\n')
 
