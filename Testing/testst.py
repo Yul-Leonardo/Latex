@@ -21,16 +21,46 @@ import subprocess, os
 #with open("someplace_new.tex", "w") as output:
     #output.write(text_new)
 
-n = input("n: ")
-kv = {'place': n , 'month':'August'}
+
+#Inputs:
+
+#Tag       TAG
+#Monat     MON
+#Jahr      JAH
+#Wie viele Tage hintereinander war ich arbeiten ?   TAGE
+#Die Bezeichnung/Beschreibung von meinem Job ?      BES
+#Wie viel habe ich Verdient (Tagessatz = 180Euro) ? VER
+
+tag = input("Tag: ")
+monat = input("Monat: ")
+jahr = input("Jahr: ")
+tage = input("Wie viele Tage hintereinander war ich arbeiten ?: ")
+beschreibung = input("Die Bezeichnung/Beschreibung von meinem Job ?: ")
+verdient = input("Wie viel habe ich Verdient (Tagessatz = 180Euro) ?: ")
+rechnungs_nummer1 = (jahr + "_" + monat + "_" + tag)
+rechnungs_nummer2 = (tag + "." + monat + "." + jahr)
+
+kv = {
+    'TAGE': tage,
+    'BES': beschreibung, 
+    'VER': verdient,
+    'RN1' : rechnungs_nummer1,
+    'RN2' : rechnungs_nummer2
+    
+    }
+
 
 #print(kv['place'])
 
-with open('someplace.tex','r') as myfile:
-    text = myfile.read()
+with open('Rechnungs_Vorlage_Kabeln.tex','r') as myfile:
+    text = myfile.read() 
 
     for key, value in kv.items():
-        text = text.replace('place', value)
+        text = text.replace('RN1', tage)
+        text = text.replace('RN2', value)
+        text = text.replace('TAGE', value)
+        text = text.replace('BES', value)
+        text = text.replace('VER', value)
 
     with open('../Pdf Dateien/someplace_new2.tex', 'w') as output:
         output.write(text)
